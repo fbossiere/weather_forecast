@@ -1,0 +1,28 @@
+{
+  "name": "weather-forecast",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "angular-resource": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "jquery": "^3.1.0",
+    "moment": "^2.14.1",
+    "font-awesome": "^4.6.3",
+    "components-font-awesome": "^4.6.3"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.0"
+  },
+  "appPath": "app",
+  "moduleName": "weatherForecastApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}
