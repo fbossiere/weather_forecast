@@ -1,33 +1,32 @@
 <div class="jumbotron text-center">
   <h2>Weather Forecast for {{ city }}.</h2>
 </div>
-<div ng-repeat="w in weatherAPIResults.list">
-  <div ng-if="$index % 8 == 0">
-    <div class="clearfix visible"></div>
-    <div class="panel">
-      <h3>{{ convertDate(w.dt) }} - Weather Forecast</h3>
-    </div>
+<div ng-repeat="daily_agg in formatted_api_results">
+  <div class="clearfix visible"></div>
+  <div class="panel">
+    <h3>{{ daily_agg[0].date }} - Weather Forecast</h3>
   </div>
+  <div ng-repeat="hourly_forecast in daily_agg">
+    <div class="col-md-6 col-xs-12">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-4">
+            <img class="img-responsive vcenter" ng-src="images/{{weatherImage(hourly_forecast.main_weather)}}">
+            </img>
+          </div>
+          <div class="col-xs-8">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{ hourly_forecast.date }}</h3>
+              </div>
 
-  <div class="col-md-6 col-xs-12">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-4">
-          <img class="img-responsive vcenter" ng-src="images/{{weatherImage(w.weather[0].main)}}">
-          </img>
-        </div>
-        <div class="col-xs-8">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">{{ convertHour(w.dt) }}</h3>
+              <ul class="list-group">
+                <li class="list-group-item">Main Weather : <b>{{ hourly_forecast.main_weather }}</b></li>
+                <li class="list-group-item" id="mintemp">Min Temp : <b>{{ hourly_forecast.min_temp }} °C</b></li>
+                <li class="list-group-item" id="maxtemp">Max Temp : <b>{{ hourly_forecast.max_temp }} °C</b></li>
+                <li class="list-group-item" id="cloudiness">Cloudiness : <b>{{ hourly_forecast.cloudiness }} %</b></li>
+              </ul>
             </div>
-
-            <ul class="list-group">
-              <li class="list-group-item">Main Weather : <b>{{ w.weather[0].main }}</b></li>
-              <li class="list-group-item" id="mintemp">Min Temp : <b>{{ w.main.temp_min }} °C</b></li>
-              <li class="list-group-item" id="maxtemp">Max Temp : <b>{{ w.main.temp_max }} °C</b></li>
-              <li class="list-group-item" id="cloudiness">Cloudiness : <b>{{ w.clouds['all'] }} %</b></li>
-            </ul>
           </div>
         </div>
       </div>
