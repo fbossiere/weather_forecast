@@ -17,7 +17,6 @@ angular.module('weatherForecastApp')
       units: "metric",
       APPID: 'be6aaf9aed3fccc9c2efb29f732bc369'
     });
-    console.log($scope.weatherAPIResults);
 
     $scope.convertDate = function(epoch_ts) {
       console.log(epoch_ts);
