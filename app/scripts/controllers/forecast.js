@@ -32,6 +32,7 @@ angular.module('weatherForecastApp')
       var extract_forecast_info = function(hourly_forecast) {
         return {
           'date': convertDate(hourly_forecast.dt),
+          'hour': convertHour(hourly_forecast.dt),
           'main_weather': hourly_forecast.weather[0].main,
           'max_temp': hourly_forecast.main.temp_max,
           'min_temp': hourly_forecast.main.temp_min,
@@ -44,7 +45,7 @@ angular.module('weatherForecastApp')
       };
 
       var convertHour = function(epoch_ts) {
-        return moment.unix(epoch_ts).format("dddd, MMMM Do YYYY, HH:mm");
+        return moment.unix(epoch_ts).format("HH:mm");
       };
 
       WeatherApi.get({
