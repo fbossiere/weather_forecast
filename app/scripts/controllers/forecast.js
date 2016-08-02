@@ -14,10 +14,9 @@ angular.module('weatherForecastApp')
 
       var extract_daily_forecasts = function(brute_data) {
         var forecasts = brute_data.list;
-        var weathers = {};
-        var date, clean_w, hourly_forecast;
+        var date, clean_w, hourly_forecast, weathers = {};
         for (var w in forecasts) {
-          hourly_forecast = forecasts[w]
+          hourly_forecast = forecasts[w];
           date = convertDate(hourly_forecast.dt);
           clean_w = extract_forecast_info(hourly_forecast);
           if (date in weathers) {
