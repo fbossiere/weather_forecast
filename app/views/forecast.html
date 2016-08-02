@@ -1,7 +1,8 @@
 <div class="jumbotron text-center">
   <h2>Weather Forecast for {{ city }}.</h2>
 </div>
-<div ng-repeat="daily_agg in formatted_api_results">
+<div></div>
+<div ng-repeat="daily_agg in displayed_weathers">
   <div class="clearfix visible"></div>
   <div class="panel">
     <h3>{{ daily_agg[0].date }} - Weather Forecast</h3>
@@ -11,7 +12,8 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-4">
-            <img class="img-responsive vcenter" ng-src="images/{{weatherImage(hourly_forecast.main_weather)}}">
+            <img class="img-responsive vcenter"
+            ng-src="images/{{ weatherImage(hourly_forecast.main_weather) }}">
             </img>
           </div>
           <div class="col-xs-8">
@@ -21,10 +23,18 @@
               </div>
 
               <ul class="list-group">
-                <li class="list-group-item">Main Weather : <b>{{ hourly_forecast.main_weather }}</b></li>
-                <li class="list-group-item" id="mintemp">Min Temp : <b>{{ hourly_forecast.min_temp }} °C</b></li>
-                <li class="list-group-item" id="maxtemp">Max Temp : <b>{{ hourly_forecast.max_temp }} °C</b></li>
-                <li class="list-group-item" id="cloudiness">Cloudiness : <b>{{ hourly_forecast.cloudiness }} %</b></li>
+                <li class="list-group-item">
+                  Main Weather : <b>{{ hourly_forecast.main_weather }}</b>
+                </li>
+                <li class="list-group-item" id="mintemp">
+                  Min Temp : <b>{{ hourly_forecast.min_temp }} °C</b>
+                </li>
+                <li class="list-group-item" id="maxtemp">
+                  Max Temp : <b>{{ hourly_forecast.max_temp }} °C</b>
+                </li>
+                <li class="list-group-item" id="cloudiness">
+                  Cloudiness : <b>{{ hourly_forecast.cloudiness }} %</b>
+                </li>
               </ul>
             </div>
           </div>
