@@ -1,44 +1,18 @@
+<p></p>
+
 <div class="jumbotron text-center" ng-init="init()">
   <h2>Weather Forecast for {{ city }}.</h2>
 </div>
-<div></div>
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Forecast Period<span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li ng-repeat="i in ['1', '3', '5']"><a href="#/forecast/{{ i }}">{{i}} Day{{ i>1? 's': ''}}</a></li>
+  </ul>
+</div>
 <div ng-repeat="daily_agg in displayed_weathers">
   <div class="clearfix visible"></div>
   <div class="panel">
     <h3>{{ daily_agg[0].date }} - Weather Forecast</h3>
   </div>
-  <div ng-repeat="hourly_forecast in daily_agg">
-    <div class="col-md-6 col-xs-12">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-4">
-            <img class="img-responsive vcenter"
-            ng-src="images/{{ weatherImage(hourly_forecast.main_weather) }}">
-            </img>
-          </div>
-          <div class="col-xs-8">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="panel-title">Daytime : <b>{{ hourly_forecast.hour }}</b></div>
-              </div>
-
-              <ul class="list-group">
-                <li class="list-group-item">
-                  Main Weather : <b>{{ hourly_forecast.main_weather }}</b>
-                </li>
-                <li class="list-group-item" id="mintemp">
-                  Min Temp : <b>{{ hourly_forecast.min_temp }} °C</b>
-                </li>
-                <li class="list-group-item" id="maxtemp">
-                  Max Temp : <b>{{ hourly_forecast.max_temp }} °C</b>
-                </li>
-                <li class="list-group-item" id="cloudiness">
-                  Cloudiness : <b>{{ hourly_forecast.cloudiness }} %</b>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div search-result blah="hourly_forecast" ng-repeat="hourly_forecast in daily_agg">
   </div>

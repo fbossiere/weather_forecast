@@ -13,12 +13,7 @@ angular.module('weatherForecastApp')
     '$routeParams',
     function ($scope, $routeParams, WeatherApi, CitySynchronizor) {
       $scope.city = CitySynchronizor.city;
-      $scope.days = $routeParams.days || 2;
-      console.log($scope.city, $scope.days);
-      
-      WeatherApi.get($scope.city, $scope.days).then(function(weathers){
-        $scope.displayed_weathers = weathers;
-      });
+      $scope.days = $routeParams.days || '3';
 
       $scope.weatherImage = function (weather) {
         if (weather === 'Clear') {
@@ -30,5 +25,9 @@ angular.module('weatherForecastApp')
         }
         return 'yeoman.png';
       };
+
+      WeatherApi.get($scope.city, $scope.days).then(function(weathers){
+        $scope.displayed_weathers = weathers;
+      });
     }
   ]);

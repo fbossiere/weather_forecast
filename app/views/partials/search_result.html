@@ -1,0 +1,32 @@
+<div class="col-md-6 col-xs-12">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-4">
+        <img class="img-responsive vcenter" ng-src="images/{{ weatherImage(hourly_forecast.main_weather) }}">
+        </img>
+      </div>
+      <div class="col-xs-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-title">Daytime : <b>{{ hourly_forecast.hour }}</b></div>
+          </div>
+
+          <ul class="list-group">
+            <li class="list-group-item">
+              Main Weather : <b>{{ hourly_forecast.main_weather }}</b>
+            </li>
+            <li class="list-group-item" id="mintemp">
+              Min Temp : <b>{{ hourly_forecast.min_temp }} °C</b>
+            </li>
+            <li class="list-group-item" id="maxtemp">
+              Max Temp : <b>{{ hourly_forecast.max_temp }} °C</b>
+            </li>
+            <li class="list-group-item" id="cloudiness">
+              Cloudiness : <b>{{ hourly_forecast.cloudiness }} %</b>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
