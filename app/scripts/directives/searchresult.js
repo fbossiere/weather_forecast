@@ -7,12 +7,13 @@
  * # searchResult
  */
 angular.module('weatherForecastApp')
-  .directive('searchResult', function () {
+  .directive('searchResult', function() {
     return {
       templateUrl: 'views/partials/search_result.html',
       restrict: 'EA',
-      scope{
-        hourly_forecast: '=blah'
+      scope: {
+        weather: '=',
+        weatherimage: '='
       }
     };
   });
