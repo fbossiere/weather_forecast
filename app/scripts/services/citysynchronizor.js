@@ -9,5 +9,5 @@
  */
 angular.module('weatherForecastApp')
   .service('CitySynchronizor', function() {
-    this.city = "Paris";
+    this.city = "";
   });

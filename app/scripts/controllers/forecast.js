@@ -12,6 +12,7 @@ angular.module('weatherForecastApp')
   .controller('ForecastCtrl', ['$scope', '$routeParams', 'WeatherApi', 'CitySynchronizor',
     '$routeParams',
     function ($scope, $routeParams, WeatherApi, CitySynchronizor) {
+      $scope.forecastBody = true;
       $scope.city = CitySynchronizor.city;
       $scope.days = $routeParams.days || '3';
 

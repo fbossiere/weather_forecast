@@ -1,17 +1,12 @@
-<div class="well text-center">
-  <h3>Hi there,</h3>
-  <h3>Welcome to my <b>AngularJS Weather Forecast</b> App.</h3>
-</div>
-
-<div class="text-center">
-  <h2>Please enter a City</h2>
-</div>
-
-<form ng-submit="submit()">
-  <div class="form-group">
-    <input type="text" class="form-control input-lg text-center" ng-model=city>
+<div class="mainpage">
+  <div class="first-title">
+    <h1>Weather Forecast in your City</h1>
   </div>
-  <div class="col-md-12 text-center">
-    <input type="submit" class="btn btn-primary btn-lg" value="Get Forecast" />
-  </div>
-</form>
+
+    <form ng-submit="submit()">
+      <div class="form-group" id='mainform'>
+        <input type="text" id='fillcity' class="form-control input-lg text-center" ng-model=city placeholder="Enter a city">
+        <input type="submit" id='validatecity' class="btn btn-4 btn-4a icon-arrow-right" value="Get Forecast" />
+      </div>
+    </form>
+</div>

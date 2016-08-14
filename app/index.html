@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="weatherForecastApp">
 
 <head>
   <meta charset="utf-8">
@@ -10,44 +10,20 @@
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/css/component.css" />
   <!-- endbuild -->
 </head>
 
-<body ng-app="weatherForecastApp">
+<body ng-class="{home: homeBody, forecast: forecastBody}" ng-view>
   <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-  <!-- Add your site or application content here -->
-  <header>
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#/">Meteo - Chabidou & Chienbidou</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="HeaderCtrl">
-          <ul class="nav navbar-nav navbar-right">
-            <li ng-class="{'active': isActive('/')}"><a href="#/">Home</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <div class="container">
-    <div ng-view></div>
-  </div>
 
   <footer class="footer navbar-fixed-bottom">
     <div class="container">
@@ -87,7 +63,6 @@
   <script src="scripts/controllers/header.js"></script>
   <script src="scripts/services/weatherapi.js"></script>
   <script src="scripts/services/citysynchronizor.js"></script>
-  <script src="scripts/directives/searchresults.js"></script>
   <script src="scripts/directives/searchresult.js"></script>
   <!-- endbuild -->
 </body>
